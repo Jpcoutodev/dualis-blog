@@ -3,7 +3,7 @@ title: 'Como encontrar um parceiro cristão: o guia prático'
 description: 'Para encontrar um parceiro cristão, combine três frentes: vida ativa na comunidade de fé, plataformas feitas para cristãos como o Dualis e oração com discernimento.'
 pubDate: 2026-06-09
 author: 'João Paulo do Couto'
-heroImage: '../../assets/blog/encontrar-parceiro-cristao.jpg'
+heroImage: '/src/assets/blog/encontrar-parceiro-cristao.jpg'
 tags: ['namoro cristão', 'relacionamentos', 'fé']
 translationSlug: 'find-christian-partner'
 faq:

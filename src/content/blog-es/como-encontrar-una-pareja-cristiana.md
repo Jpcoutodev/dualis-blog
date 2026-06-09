@@ -3,7 +3,7 @@ title: 'Cómo encontrar una pareja cristiana: la guía práctica'
 description: 'Para encontrar una pareja cristiana, combina tres frentes: vida activa en tu comunidad de fe, apps hechas para cristianos como Dualis y oración con discernimiento.'
 pubDate: 2026-06-09
 author: 'João Paulo do Couto'
-heroImage: '../../assets/blog/encontrar-parceiro-cristao.jpg'
+heroImage: '/src/assets/blog/encontrar-parceiro-cristao.jpg'
 tags: ['citas cristianas', 'relaciones', 'fe']
 translationSlug: 'find-christian-partner'
 faq:

@@ -6,6 +6,7 @@ import Footer from './Footer.astro';
 import FormattedDate from './FormattedDate.astro';
 import Header from './Header.astro';
 import { blogIndexPath, getLang, postPath, UI, type LangCode } from '../i18n';
+import { resolveHero } from '../heroImages';
 
 interface Props {
 	lang: LangCode;
@@ -37,8 +38,13 @@ const blogHome = blogIndexPath(lang);
 						posts.map((post) => (
 							<li>
 								<a href={postPath(lang, post.id)}>
-									{post.data.heroImage && (
-										<Image width={640} height={320} src={post.data.heroImage} alt={post.data.title} />
+									{resolveHero(post.data.heroImage) && (
+										<Image
+											width={640}
+											height={320}
+											src={resolveHero(post.data.heroImage)!}
+											alt={post.data.title}
+										/>
 									)}
 									<h2 class="title">{post.data.title}</h2>
 									<p class="desc">{post.data.description}</p>

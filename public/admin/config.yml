@@ -6,11 +6,11 @@ backend:
 
 # Onde os uploads são commitados no repo:
 media_folder: "src/assets/blog"
-# Caminho RELATIVO gravado no frontmatter (ver Etapa 4.2 da spec).
-# Como os posts ficam em src/content/blog-XX/ (mesma profundidade), o caminho
-# de qualquer .md até src/assets/blog/ é "../../assets/blog/". Assim o heroImage
-# gravado é exatamente o formato que o image() do Astro resolve — sem script extra.
-public_folder: "../../assets/blog"
+# Caminho ABSOLUTO gravado no frontmatter (o Sveltia EXIGE começar com "/").
+# O heroImage fica como "/src/assets/blog/foto.jpg". O layout mapeia essa string
+# para o asset otimizado via import.meta.glob('/src/assets/blog/...') e passa ao
+# <Image> do Astro — otimização (WebP/srcset) preservada sem script de build.
+public_folder: "/src/assets/blog"
 
 collections:
   - name: "blog-pt"
