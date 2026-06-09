@@ -1,33 +1,33 @@
 /*
-  Identidade visual do Dualis (dualis.love) — tema escuro com gradiente.
-  Mantém os MESMOS nomes de variáveis do template para não quebrar os
-  componentes, mas remapeia os valores para o tema escuro. Base original:
-  Bear Blog default CSS (MIT).
+  Identidade visual do blog Dualis — tema CLARO com acentos da marca.
+  Fundo claro para leitura confortável; gradiente Dualis nos títulos/CTA/links,
+  fonte Outfit. Mantém os nomes de variáveis do template para não quebrar os
+  componentes. Base original: Bear Blog default CSS (MIT).
  */
 
 :root {
-	/* Paleta Dualis (extraída de styles.css do site principal) */
+	/* Paleta Dualis */
 	--primary: #6366f1;
 	--primary-dark: #4f46e5;
 	--secondary: #a855f7;
 	--accent-pink: #ec4899;
 	--gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-	--gradient-text: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+	/* gradiente de texto com tons mais fortes p/ contraste sobre fundo claro */
+	--gradient-text: linear-gradient(135deg, #4f46e5, #9333ea, #db2777);
 
-	--bg: #0f172a;
-	--bg-light: #1e293b;
+	--bg: #ffffff;
+	--bg-light: #f8fafc; /* superfícies: header, footer, cards */
 
-	/* Variáveis usadas pelos componentes do template (remapeadas p/ tema escuro).
-	   Os nomes são mantidos; os valores agora servem ao fundo escuro. */
-	--accent: #c084fc; /* cor de links */
-	--accent-dark: #a855f7;
-	--black: 248, 250, 252; /* "preto" → texto claro (headings) */
-	--gray: 148, 163, 184; /* texto secundário / datas */
-	--gray-light: 30, 41, 59; /* superfícies escuras (code, bordas) */
-	--gray-dark: 226, 232, 240; /* corpo do texto */
+	/* Variáveis usadas pelos componentes (remapeadas p/ tema claro). */
+	--accent: #7c3aed; /* cor de links — bom contraste sobre branco */
+	--accent-dark: #6d28d9;
+	--black: 15, 23, 42; /* headings (slate-900) */
+	--gray: 100, 116, 139; /* texto secundário / datas (slate-500) */
+	--gray-light: 226, 232, 240; /* bordas e fundo de code inline (slate-200) */
+	--gray-dark: 51, 65, 85; /* corpo do texto (slate-700) */
 	--box-shadow:
-		0 2px 6px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(99, 102, 241, 0.15),
-		0 16px 32px rgba(0, 0, 0, 0.25);
+		0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(99, 102, 241, 0.1),
+		0 16px 32px rgba(15, 23, 42, 0.06);
 }
 body {
 	font-family: var(--font-outfit), system-ui, sans-serif;
@@ -79,10 +79,10 @@ b {
 }
 a {
 	color: var(--accent);
-	text-decoration-color: rgba(192, 132, 252, 0.4);
+	text-decoration-color: rgba(124, 58, 237, 0.35);
 }
 a:hover {
-	color: var(--accent-pink, #f472b6);
+	color: var(--accent-pink);
 }
 p {
 	margin-bottom: 1em;
@@ -116,21 +116,21 @@ code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	border-radius: 4px;
-	color: #e2e8f0;
+	color: rgb(var(--gray-dark));
+	font-size: 0.9em;
 }
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
-	background-color: rgb(var(--gray-light)) !important;
 }
 pre > code {
 	all: unset;
 }
 blockquote {
 	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
+	padding: 0.2em 0 0.2em 20px;
 	margin: 0;
-	font-size: 1.333em;
+	font-size: 1.2em;
 	color: rgb(var(--gray-dark));
 }
 hr {
