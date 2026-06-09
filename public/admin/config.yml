@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: SEU_USUARIO_GITHUB/dualis-blog # AJUSTAR para o repositório real do blog
+  repo: Jpcoutodev/dualis-blog
   branch: main
 
 # Onde os uploads são commitados no repo:
