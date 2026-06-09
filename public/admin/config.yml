@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Jpcoutodev/dualis-blog
   branch: main
+  base_url: https://sveltia-cms-auth.coutodev7.workers.dev
 
 # Onde os uploads são commitados no repo:
 media_folder: "src/assets/blog"
