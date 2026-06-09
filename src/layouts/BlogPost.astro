@@ -1,0 +1,260 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { PLAY_STORE_URL } from '../consts';
+import { blogIndexPath, postPath, SITE, UI, type Alternate, type LangCode } from '../i18n';
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	heroImage?: ImageMetadata;
+	author: string;
+	tags?: string[];
+	faq?: { question: string; answer: string }[];
+	lang: LangCode;
+	slug: string;
+	alternates: Alternate[];
+}
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	author,
+	tags = [],
+	faq = [],
+	lang,
+	slug,
+	alternates,
+} = Astro.props;
+
+const t = UI[lang];
+const canonical = `${SITE}${postPath(lang, slug)}`;
+const heroAbs = heroImage ? new URL(heroImage.src, Astro.url).href : undefined;
+
+// JSON-LD BlogPosting (com speakable) + FAQPage (se houver FAQ). Ver Etapas 7, 9 e 10.
+const blogPosting = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: title,
+	description,
+	inLanguage: lang,
+	datePublished: pubDate.toISOString(),
+	dateModified: (updatedDate ?? pubDate).toISOString(),
+	author: { '@type': 'Person', name: author },
+	publisher: { '@type': 'Organization', name: 'Dualis', url: SITE },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+	...(heroAbs ? { image: heroAbs } : {}),
+	speakable: {
+		'@type': 'SpeakableSpecification',
+		cssSelector: ['.post-summary', 'h1', 'h2'],
+	},
+};
+
+const faqPage =
+	faq.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'FAQPage',
+				mainEntity: faq.map((q) => ({
+					'@type': 'Question',
+					name: q.question,
+					acceptedAnswer: { '@type': 'Answer', text: q.answer },
+				})),
+			}
+		: null;
+
+const jsonLd = [JSON.stringify(blogPosting), ...(faqPage ? [JSON.stringify(faqPage)] : [])];
+---
+
+<html lang={lang}>
+	<head>
+		<BaseHead
+			title={`${title} — ${t.siteTitle}`}
+			description={description}
+			image={heroImage}
+			alternates={alternates}
+			jsonLd={jsonLd}
+		/>
+	</head>
+
+	<body>
+		<Header lang={lang} />
+		<main>
+			<article>
+				{
+					heroImage && (
+						<div class="hero-image">
+							<Image width={1020} height={510} src={heroImage} alt={title} />
+						</div>
+					)
+				}
+				<div class="prose">
+					<div class="title">
+						<h1>{title}</h1>
+						<div class="meta">
+							<span>{t.by} {author}</span>
+							<span aria-hidden="true">·</span>
+							<FormattedDate date={pubDate} lang={lang} />
+							{
+								updatedDate && (
+									<span class="updated">
+										· {t.updatedOn} <FormattedDate date={updatedDate} lang={lang} />
+									</span>
+								)
+							}
+						</div>
+						{
+							tags.length > 0 && (
+								<ul class="tags">
+									{tags.map((tag) => (
+										<li>#{tag}</li>
+									))}
+								</ul>
+							)
+						}
+					</div>
+
+					<!-- Parágrafo de resumo: alvo do speakable e da resposta direta (Etapa 9.1) -->
+					<p class="post-summary">{description}</p>
+					<hr />
+
+					<slot />
+
+					{
+						faq.length > 0 && (
+							<section class="faq">
+								<h2>{t.faqHeading}</h2>
+								{faq.map((q) => (
+									<details>
+										<summary>{q.question}</summary>
+										<p>{q.answer}</p>
+									</details>
+								))}
+							</section>
+						)
+					}
+
+					<aside class="cta">
+						<h2>{t.ctaTitle}</h2>
+						<p>{t.ctaText}</p>
+						<a class="cta-btn" href={PLAY_STORE_URL} target="_blank" rel="noopener">
+							{t.ctaButton}
+						</a>
+					</aside>
+
+					<p class="back"><a href={blogIndexPath(lang)}>{t.backToBlog}</a></p>
+				</div>
+			</article>
+		</main>
+		<Footer lang={lang} />
+	</body>
+</html>
+
+<style>
+	main {
+		width: calc(100% - 2em);
+		max-width: 100%;
+		margin: 0;
+	}
+	.hero-image {
+		width: 100%;
+		max-width: 1020px;
+		margin: 2em auto 0;
+	}
+	.hero-image img {
+		display: block;
+		margin: 0 auto;
+		border-radius: 12px;
+		box-shadow: var(--box-shadow);
+	}
+	.prose {
+		width: 720px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 1em;
+		color: rgb(var(--gray-dark));
+	}
+	.title {
+		margin-bottom: 1.5em;
+		padding: 1.5em 0 1em;
+		text-align: center;
+	}
+	.title h1 {
+		margin: 0 0 0.4em 0;
+	}
+	.meta {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.4em;
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
+	.tags {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		justify-content: center;
+		padding: 0;
+		margin: 1em 0 0;
+		font-size: 0.85em;
+		color: var(--accent);
+	}
+	.post-summary {
+		font-size: 1.15em;
+		line-height: 1.6;
+		color: rgb(var(--black));
+		font-weight: 500;
+	}
+	.faq {
+		margin-top: 3em;
+	}
+	.faq details {
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 10px;
+		padding: 0.5em 1em;
+		margin-bottom: 0.75em;
+		background: var(--bg-light);
+	}
+	.faq summary {
+		cursor: pointer;
+		font-weight: 600;
+		color: rgb(var(--black));
+	}
+	.cta {
+		margin-top: 3.5em;
+		padding: 2em;
+		border-radius: 16px;
+		text-align: center;
+		background: var(--gradient);
+		color: #fff;
+	}
+	.cta h2 {
+		color: #fff;
+		margin-top: 0;
+	}
+	.cta-btn {
+		display: inline-block;
+		margin-top: 0.5em;
+		padding: 0.8em 1.6em;
+		border-radius: 999px;
+		background: #fff;
+		color: var(--primary-dark);
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.back {
+		margin-top: 2.5em;
+		text-align: center;
+	}
+</style>

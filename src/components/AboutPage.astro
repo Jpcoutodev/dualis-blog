@@ -1,0 +1,85 @@
+---
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import { SITE, UI, type LangCode } from '../i18n';
+import { DEFAULT_AUTHOR } from '../consts';
+
+interface Props {
+	lang: LangCode;
+}
+
+const { lang } = Astro.props;
+const t = UI[lang];
+
+const CONTENT: Record<LangCode, { title: string; body: string[]; role: string }> = {
+	'pt-BR': {
+		title: 'Sobre o Blog Dualis',
+		role: 'Responsável pelo conteúdo e DPO do Dualis',
+		body: [
+			'O Blog Dualis é mantido pela equipe do Dualis, o aplicativo de relacionamentos para cristãos solteiros. Nosso objetivo é oferecer conteúdo prático e fundamentado sobre relacionamentos, fé e namoro cristão.',
+			'Os artigos são escritos e revisados por pessoas que conhecem de perto a realidade do público cristão solteiro, com cuidado para tratar de decisões de vida com responsabilidade.',
+		],
+	},
+	en: {
+		title: 'About the Dualis Blog',
+		role: 'Content lead and DPO at Dualis',
+		body: [
+			'The Dualis Blog is maintained by the team behind Dualis, the dating app for single Christians. Our goal is to offer practical, well-grounded content about relationships, faith, and Christian dating.',
+			'Articles are written and reviewed by people who understand the reality of single Christians firsthand, treating life decisions with care and responsibility.',
+		],
+	},
+	es: {
+		title: 'Acerca del Blog Dualis',
+		role: 'Responsable de contenido y DPO de Dualis',
+		body: [
+			'El Blog Dualis es mantenido por el equipo de Dualis, la app de citas para cristianos solteros. Nuestro objetivo es ofrecer contenido práctico y fundamentado sobre relaciones, fe y citas cristianas.',
+			'Los artículos son escritos y revisados por personas que conocen de cerca la realidad de los cristianos solteros, tratando las decisiones de vida con cuidado y responsabilidad.',
+		],
+	},
+};
+
+const c = CONTENT[lang];
+
+const personLd = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: DEFAULT_AUTHOR,
+	jobTitle: c.role,
+	worksFor: { '@type': 'Organization', name: 'Dualis', url: SITE },
+});
+---
+
+<html lang={lang}>
+	<head>
+		<BaseHead
+			title={`${c.title} — ${t.siteTitle}`}
+			description={c.body[0]}
+			jsonLd={[personLd]}
+		/>
+	</head>
+	<body>
+		<Header lang={lang} />
+		<main>
+			<article class="prose">
+				<h1>{c.title}</h1>
+				{c.body.map((p) => <p>{p}</p>)}
+				<h2>{DEFAULT_AUTHOR}</h2>
+				<p class="role">{c.role}</p>
+			</article>
+		</main>
+		<Footer lang={lang} />
+	</body>
+</html>
+
+<style>
+	.prose {
+		width: 720px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		color: rgb(var(--gray-dark));
+	}
+	.role {
+		color: rgb(var(--gray));
+	}
+</style>

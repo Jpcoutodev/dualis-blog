@@ -1,0 +1,82 @@
+backend:
+  name: github
+  repo: SEU_USUARIO_GITHUB/dualis-blog # AJUSTAR para o repositório real do blog
+  branch: main
+
+# Onde os uploads são commitados no repo:
+media_folder: "src/assets/blog"
+# Caminho RELATIVO gravado no frontmatter (ver Etapa 4.2 da spec).
+# Como os posts ficam em src/content/blog-XX/ (mesma profundidade), o caminho
+# de qualquer .md até src/assets/blog/ é "../../assets/blog/". Assim o heroImage
+# gravado é exatamente o formato que o image() do Astro resolve — sem script extra.
+public_folder: "../../assets/blog"
+
+collections:
+  - name: "blog-pt"
+    label: "Artigos — Português"
+    folder: "src/content/blog-pt"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descrição (SEO / resumo)", name: "description", widget: "text" }
+      - { label: "Data de publicação", name: "pubDate", widget: "datetime" }
+      - { label: "Última atualização", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Imagem de destaque", name: "heroImage", widget: "image", required: false }
+      - { label: "Autor", name: "author", widget: "string", default: "Equipe Dualis" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Slug compartilhado (hreflang)", name: "translationSlug", widget: "string", required: false, hint: "Use o MESMO valor nas versões PT, EN e ES do mesmo artigo." }
+      - label: "FAQ (perguntas e respostas para IA/SGE)"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Pergunta", name: "question", widget: "string" }
+          - { label: "Resposta", name: "answer", widget: "text" }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  - name: "blog-en"
+    label: "Articles — English"
+    folder: "src/content/blog-en"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description (SEO / summary)", name: "description", widget: "text" }
+      - { label: "Publish date", name: "pubDate", widget: "datetime" }
+      - { label: "Last updated", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Hero image", name: "heroImage", widget: "image", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "Dualis Team" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Shared slug (hreflang)", name: "translationSlug", widget: "string", required: false, hint: "Use the SAME value across the PT, EN and ES versions of the same article." }
+      - label: "FAQ (questions and answers for AI/SGE)"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Answer", name: "answer", widget: "text" }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  - name: "blog-es"
+    label: "Artículos — Español"
+    folder: "src/content/blog-es"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descripción (SEO / resumen)", name: "description", widget: "text" }
+      - { label: "Fecha de publicación", name: "pubDate", widget: "datetime" }
+      - { label: "Última actualización", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Imagen destacada", name: "heroImage", widget: "image", required: false }
+      - { label: "Autor", name: "author", widget: "string", default: "Equipo Dualis" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Slug compartido (hreflang)", name: "translationSlug", widget: "string", required: false, hint: "Usa el MISMO valor en las versiones PT, EN y ES del mismo artículo." }
+      - label: "FAQ (preguntas y respuestas para IA/SGE)"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Pregunta", name: "question", widget: "string" }
+          - { label: "Respuesta", name: "answer", widget: "text" }
+      - { label: "Contenido", name: "body", widget: "markdown" }

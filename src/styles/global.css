@@ -1,0 +1,161 @@
+/*
+  Identidade visual do Dualis (dualis.love) — tema escuro com gradiente.
+  Mantém os MESMOS nomes de variáveis do template para não quebrar os
+  componentes, mas remapeia os valores para o tema escuro. Base original:
+  Bear Blog default CSS (MIT).
+ */
+
+:root {
+	/* Paleta Dualis (extraída de styles.css do site principal) */
+	--primary: #6366f1;
+	--primary-dark: #4f46e5;
+	--secondary: #a855f7;
+	--accent-pink: #ec4899;
+	--gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+	--gradient-text: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+
+	--bg: #0f172a;
+	--bg-light: #1e293b;
+
+	/* Variáveis usadas pelos componentes do template (remapeadas p/ tema escuro).
+	   Os nomes são mantidos; os valores agora servem ao fundo escuro. */
+	--accent: #c084fc; /* cor de links */
+	--accent-dark: #a855f7;
+	--black: 248, 250, 252; /* "preto" → texto claro (headings) */
+	--gray: 148, 163, 184; /* texto secundário / datas */
+	--gray-light: 30, 41, 59; /* superfícies escuras (code, bordas) */
+	--gray-dark: 226, 232, 240; /* corpo do texto */
+	--box-shadow:
+		0 2px 6px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(99, 102, 241, 0.15),
+		0 16px 32px rgba(0, 0, 0, 0.25);
+}
+body {
+	font-family: var(--font-outfit), system-ui, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--bg);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: rgb(var(--gray-dark));
+	font-size: 20px;
+	line-height: 1.7;
+}
+main {
+	width: 720px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 3em 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.2;
+	font-weight: 700;
+}
+h1 {
+	font-size: 3.052em;
+}
+h2 {
+	font-size: 2.441em;
+}
+h3 {
+	font-size: 1.953em;
+}
+h4 {
+	font-size: 1.563em;
+}
+h5 {
+	font-size: 1.25em;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	color: var(--accent);
+	text-decoration-color: rgba(192, 132, 252, 0.4);
+}
+a:hover {
+	color: var(--accent-pink, #f472b6);
+}
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+.gradient-text {
+	background: var(--gradient-text);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 4px;
+	color: #e2e8f0;
+}
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+	background-color: rgb(var(--gray-light)) !important;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0;
+	font-size: 1.333em;
+	color: rgb(var(--gray-dark));
+}
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

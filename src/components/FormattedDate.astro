@@ -1,0 +1,21 @@
+---
+import type { LangCode } from '../i18n';
+
+interface Props {
+	date: Date;
+	lang?: LangCode;
+}
+
+const { date, lang = 'pt-BR' } = Astro.props;
+const locale = lang === 'en' ? 'en-US' : lang === 'es' ? 'es-ES' : 'pt-BR';
+---
+
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString(locale, {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})
+	}
+</time>

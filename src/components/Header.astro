@@ -1,0 +1,109 @@
+---
+import { blogIndexPath, LANGUAGES, UI, type LangCode } from '../i18n';
+import { HOME_URL } from '../consts';
+
+interface Props {
+	lang: LangCode;
+}
+
+const { lang } = Astro.props;
+const t = UI[lang];
+const blogHome = blogIndexPath(lang);
+const aboutPath = `${blogHome}/${t.aboutSlug}`;
+const pathname = Astro.url.pathname;
+const isActive = (href: string) =>
+	href === '/' ? false : pathname === href || pathname.startsWith(href + '/');
+---
+
+<header>
+	<nav>
+		<a class="brand" href={blogHome}>
+			<span class="gradient-text">Dualis</span> <span class="brand-blog">{t.blogTitle}</span>
+		</a>
+		<div class="internal-links">
+			<a href={HOME_URL}>{t.nav.home}</a>
+			<a href={blogHome} class:list={[{ active: isActive(blogHome) }]}>{t.nav.blog}</a>
+			<a href={aboutPath} class:list={[{ active: isActive(aboutPath) }]}>{t.about}</a>
+		</div>
+		<div class="lang-switch">
+			{
+				LANGUAGES.map((l) => (
+					<a
+						href={blogIndexPath(l.code)}
+						class:list={[{ active: l.code === lang }]}
+						hreflang={l.code}
+					>
+						{l.label}
+					</a>
+				))
+			}
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: var(--bg-light);
+		border-bottom: 1px solid rgb(var(--gray-light));
+		position: sticky;
+		top: 0;
+		z-index: 10;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1em;
+		flex-wrap: wrap;
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+	.brand {
+		font-weight: 800;
+		font-size: 1.3em;
+		text-decoration: none;
+		padding: 0.6em 0;
+	}
+	.brand-blog {
+		color: rgb(var(--gray-dark));
+		font-weight: 500;
+	}
+	nav a {
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+	}
+	.internal-links {
+		display: flex;
+		gap: 0.4em;
+	}
+	.internal-links a {
+		padding: 1em 0.6em;
+		border-bottom: 3px solid transparent;
+	}
+	.internal-links a.active {
+		border-bottom-color: var(--accent);
+		color: rgb(var(--black));
+	}
+	.lang-switch {
+		display: flex;
+		gap: 0.3em;
+		font-size: 0.85em;
+	}
+	.lang-switch a {
+		padding: 0.35em 0.6em;
+		border-radius: 999px;
+		border: 1px solid rgb(var(--gray-light));
+		color: rgb(var(--gray));
+	}
+	.lang-switch a.active {
+		background: var(--gradient);
+		color: #fff;
+		border-color: transparent;
+	}
+	@media (max-width: 720px) {
+		.internal-links a {
+			padding: 0.6em 0.5em;
+		}
+	}
+</style>

@@ -1,0 +1,57 @@
+---
+import { HOME_URL } from '../consts';
+import { UI, type LangCode } from '../i18n';
+
+interface Props {
+	lang: LangCode;
+}
+
+const { lang } = Astro.props;
+const t = UI[lang];
+const today = new Date();
+
+// Páginas de políticas no site principal (dualis.love), por idioma.
+// Os caminhos seguem o padrão do site (cleanUrls, sem .html).
+const POLICIES: Record<LangCode, { terms: string; privacy: string; security: string }> = {
+	'pt-BR': { terms: '/termos', privacy: '/privacidade', security: '/seguranca' },
+	en: { terms: '/en/terms', privacy: '/en/privacy', security: '/en/security' },
+	es: { terms: '/es/terminos', privacy: '/es/privacidad', security: '/es/seguridad' },
+};
+const p = POLICIES[lang];
+---
+
+<footer>
+	<div class="links">
+		<a href={`${HOME_URL}${p.terms}`}>{t.footer.terms}</a>
+		<a href={`${HOME_URL}${p.privacy}`}>{t.footer.privacy}</a>
+		<a href={`${HOME_URL}${p.security}`}>{t.footer.security}</a>
+	</div>
+	<p>&copy; {today.getFullYear()} Dualis. {t.footer.rights}</p>
+</footer>
+<style>
+	footer {
+		padding: 2.5em 1em 4em 1em;
+		background: var(--bg-light);
+		border-top: 1px solid rgb(var(--gray-light));
+		color: rgb(var(--gray));
+		text-align: center;
+	}
+	.links {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1.5em;
+		margin-bottom: 1em;
+	}
+	.links a {
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+	}
+	.links a:hover {
+		color: var(--accent);
+	}
+	footer p {
+		margin: 0;
+		font-size: 0.9em;
+	}
+</style>

@@ -1,0 +1,6 @@
+---
+// A raiz '/' do projeto Astro não é servida via rewrite (só /blog, /en/blog,
+// /es/blog e /admin). Esta página existe apenas para visitas diretas ao
+// .vercel.app — redireciona para a listagem PT.
+return Astro.redirect('/blog');
+---
