@@ -56,9 +56,7 @@ A Bíblia fala sobre não se unir em "jugo desigual" (2 Coríntios 6:14), e muit
 Nem todo aplicativo que se diz "cristão" entrega o que promete. Os que realmente funcionam têm algumas características em comum:
 
 - \*\*Filtro por denominação:\*\* católico, evangélico, ortodoxo e outras tradições têm particularidades. Poder filtrar por denominação aproxima pessoas com vivências de fé semelhantes.
-
 - \*\*Foco declarado em relacionamento sério:\*\* a plataforma deixa claro, desde o início, que existe para conectar quem busca compromisso — não encontros passageiros.
-
 - \*\*Ambiente moderado e seguro:\*\* comunidades cristãs prezam pelo respeito. Um bom app investe em moderação e em ferramentas de segurança para proteger seus usuários.
 
 ## Como escolher um app de namoro cristão com discernimento
@@ -87,4 +85,4 @@ Um bom aplicativo entra como uma ferramenta a serviço desse propósito: ele apr
 
 Se você chegou até aqui procurando um "Tinder gospel", o que está buscando de verdade é uma comunidade onde fé e relacionamento sério andam juntos. O \*\*Dualis\*\* foi criado exatamente para isso: conecta cristãos pela denominação e pelos valores que vocês compartilham, num ambiente respeitoso e voltado para quem leva o relacionamento a sério.
 
-\*\*[Baixe o Dualis gratuitamente no Google Play](https://play.google.com/store)\*\* e comece hoje a conhecer pessoas que buscam o mesmo propósito que você.
+Comece hoje a conhecer pessoas que buscam o mesmo propósito que você.
