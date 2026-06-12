@@ -52,11 +52,8 @@ Isso também naturalmente te coloca em ambientes e comunidades onde você encont
 Aqui é onde a parte prática entra. Para conhecer alguém, você precisa estar onde as pessoas estão. Alguns dos melhores espaços:
 
 - \*\*Sua igreja local:\*\* grupos de jovens, ministérios, células e eventos são lugares naturais de conexão.
-
 - \*\*Eventos e conferências cristãs:\*\* reúnem pessoas de várias comunidades com interesses e fé em comum.
-
 - \*\*Círculos de amizade da comunidade:\*\* muitos relacionamentos começam por amigos em comum que apresentam pessoas.
-
 - \*\*Aplicativos de namoro cristão:\*\* uma ferramenta moderna e eficiente para ampliar o alcance além do seu círculo imediato, especialmente se sua igreja é pequena ou você tem pouco tempo.
 
 Não há nada de errado em usar mais de um desses caminhos ao mesmo tempo. O objetivo é simplesmente aumentar suas oportunidades de conhecer alguém alinhado com você. Se quiser entender melhor como funcionam as plataformas de namoro para cristãos, vale ler nosso artigo sobre se [existe um "Tinder gospel"](/blog/existe-tinder-gospel).
@@ -100,5 +97,3 @@ Observe se há valores e fé alinhados, caráter, respeito e propósitos de vida
 Começar um namoro evangélico é, antes de tudo, uma decisão de buscar com intenção e fé. Os passos são simples: tenha clareza, fortaleça sua caminhada, amplie seus círculos e avance com discernimento. O resto é confiar no processo e no tempo de Deus.
 
 Se você quer ampliar suas oportunidades de conhecer cristãos que buscam o mesmo que você, o \*\*Dualis\*\* pode ajudar. Ele conecta pessoas pela denominação e pelos valores que vocês compartilham, num ambiente respeitoso e feito para quem leva o relacionamento a sério.
-
-\*\*[Baixe o Dualis gratuitamente no Google Play](https://play.google.com/store)\*\* e comece hoje a dar esse passo com propósito.
