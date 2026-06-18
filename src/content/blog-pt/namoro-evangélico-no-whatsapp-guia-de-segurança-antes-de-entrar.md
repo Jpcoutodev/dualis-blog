@@ -3,7 +3,7 @@ title: 'Namoro Evangélico no WhatsApp: Guia de Segurança Antes de Entrar'
 description: Pensa em namoro evangélico no WhatsApp? Veja como se proteger de golpes e perfis falsos nos grupos — e uma forma mais segura de conhecer cristãos.
 pubDate: 2026-06-18T08:32
 updatedDate: 2026-06-18T08:32
-heroImage: /src/assets/blog/imagenpost.png
+heroImage: /src/assets/blog/ChatGPT Image 10 de jun. de 2026, 08_03_09.png
 author: Equipe Dualis
 tags:
   - namoro evangélico whatsapp
