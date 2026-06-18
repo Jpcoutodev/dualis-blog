@@ -3,7 +3,7 @@ title: 'Namoro Evangélico no WhatsApp: Guia de Segurança Antes de Entrar'
 description: Pensa em namoro evangélico no WhatsApp? Veja como se proteger de golpes e perfis falsos nos grupos — e uma forma mais segura de conhecer cristãos.
 pubDate: 2026-06-18T08:32
 updatedDate: 2026-06-18T08:32
-heroImage: ''
+heroImage: /src/assets/blog/imagenpost.png
 author: Equipe Dualis
 tags:
   - namoro evangélico whatsapp
@@ -60,15 +60,10 @@ Sem alguém responsável por moderar, comportamentos abusivos, mensagens inadequ
 Se mesmo assim você quiser participar de grupos — e tudo bem, é uma escolha legítima — siga estas precauções. Elas valem para qualquer namoro online, não só no WhatsApp.
 
 - \*\*Nunca compartilhe dados sensíveis:\*\* documentos, dados bancários, chave PIX, senhas ou endereço. Nenhuma pessoa de bem vai pedir isso no início de uma conversa.
-
 - \*\*Jamais envie dinheiro:\*\* por mais convincente que seja a história, não transfira valores para alguém que conheceu online. Esse é o sinal número um de golpe.
-
 - \*\*Faça videochamada antes de qualquer encontro:\*\* confirma que a pessoa é real e corresponde às fotos.
-
 - \*\*Marque o primeiro encontro em local público:\*\* e avise um amigo ou familiar onde você estará.
-
 - \*\*Desconfie de pressa e intensidade exagerada:\*\* golpistas costumam acelerar a intimidade para criar dependência emocional rápido.
-
 - \*\*Proteja seu perfil do WhatsApp:\*\* ajuste as configurações de privacidade para limitar quem vê sua foto, status e informações.
 
 Seguir esses passos reduz muito o risco. Mas vale ser honesto: eles não eliminam o problema de fundo, que é a ausência de verificação e moderação. É aí que entra a próxima parte.
