@@ -3,7 +3,7 @@ title: 'Noviazgo Católico: Cómo Encontrar a Alguien que Viva la Misma Fe'
 description: ¿Buscas un noviazgo católico con propósito? Mira cómo encontrar a alguien que viva la misma fe, con discernimiento, y dónde conocer católicos solteros.
 pubDate: 2026-08-27T15:12:00
 updatedDate: 2026-08-27T15:12:00
-heroImage: ''
+heroImage: /src/assets/blog/ChatGPT Image 27 de ago. de 2026, 15_09_07.png
 author: Equipo Dualis
 tags:
   - noviazgo católico noviazgo santo católicos solteros relación católica citas cristianas
